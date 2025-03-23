@@ -5,14 +5,21 @@ document.getElementById("generate-btn").addEventListener("click", async function
         return;
     }
 
-    // Simulación de generación rápida del video
     alert("Generando video... Esto puede tardar unos segundos.");
 
-    // Aquí podríamos integrar IA para generar imágenes y voz
-    // Por ahora, simulamos un video con un clip predefinido
-    setTimeout(() => {
-        document.getElementById("video-preview").src = "https://www.w3schools.com/html/mov_bbb.mp4"; // Video de prueba
+    const response = await fetch("/generate_video", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: text })
+    });
+
+    const result = await response.json();
+
+    if (result.video_url) {
+        document.getElementById("video-preview").src = result.video_url;
         document.getElementById("download-btn").style.display = "block";
-        document.getElementById("download-btn").href = "https://www.w3schools.com/html/mov_bbb.mp4"; // Enlace de prueba
-    }, 3000);
+        document.getElementById("download-btn").href = result.video_url;
+    } else {
+        alert("Error al generar el video.");
+    }
 });
