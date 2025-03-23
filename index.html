@@ -3,25 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechAnime Vault - Generador de Videos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>TechAnimeVault - Generador de Videos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>TechAnime Vault</h1>
-        <p>Convierte texto en un video de anime con voz en español</p>
-    </header>
-
-    <main>
-        <textarea id="input-text" placeholder="Escribe el resumen aquí..."></textarea>
+    <div class="container">
+        <h1>TechAnimeVault - Generador de Videos</h1>
+        <textarea id="text-input" placeholder="Escribe tu resumen aquí..."></textarea>
         <button id="generate-btn">Generar Video</button>
-
-        <div id="video-container">
-            <video id="output-video" controls></video>
-            <a id="download-btn" style="display: none;" download="resumen.mp4">Descargar Video</a>
-        </div>
-    </main>
-
+        <video id="video-preview" controls></video>
+        <a id="download-btn" style="display: none;" download="TechAnimeVault_Video.mp4">Descargar Video</a>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
